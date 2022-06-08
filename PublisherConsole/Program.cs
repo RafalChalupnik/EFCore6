@@ -9,6 +9,6 @@ QueryFilters();
 void QueryFilters()
 {
     var authors = _context.Authors
-        .Where(author => author.FirstName == "Beza")
+        .Where(author => author.LastName.StartsWith("t"))
         .ToList();
 }
