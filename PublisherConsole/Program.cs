@@ -8,7 +8,5 @@ QueryFilters();
 
 void QueryFilters()
 {
-    var authors = _context.Authors
-        .Where(author => author.LastName.StartsWith("t"))
-        .ToList();
+    var authors = _context.Authors.Find(1);
 }
