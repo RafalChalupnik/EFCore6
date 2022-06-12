@@ -3,10 +3,4 @@
 using PublisherData;
 
 var _context = new PubContext();
-
-QueryFilters();
-
-void QueryFilters()
-{
-    var authors = _context.Authors.Find(1);
-}
+var authors = _context.Authors.ToList();

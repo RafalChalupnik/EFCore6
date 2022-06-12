@@ -11,8 +11,9 @@ public class PubContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(
-            "Server=localhost; Database=PubDatabase; User Id=SA; Password=MyP@ssw0rd;");
+        optionsBuilder
+            .UseSqlServer("Server=localhost; Database=PubDatabase; User Id=SA; Password=MyP@ssw0rd;")
+            .LogTo(Console.WriteLine);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
