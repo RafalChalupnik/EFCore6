@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PublisherDomain;
 
 namespace PublisherData;
@@ -13,7 +14,10 @@ public class PubContext : DbContext
     {
         optionsBuilder
             .UseSqlServer("Server=localhost; Database=PubDatabase; User Id=SA; Password=MyP@ssw0rd;")
-            .LogTo(Console.WriteLine);
+            .LogTo(
+                Console.WriteLine, 
+                new [] {DbLoggerCategory.Database.Command.Name},
+                LogLevel.Information);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
