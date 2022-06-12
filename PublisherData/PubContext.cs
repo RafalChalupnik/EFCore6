@@ -17,7 +17,8 @@ public class PubContext : DbContext
             .LogTo(
                 Console.WriteLine, 
                 new [] {DbLoggerCategory.Database.Command.Name},
-                LogLevel.Information);
+                LogLevel.Information)
+            .EnableSensitiveDataLogging();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -3,4 +3,9 @@
 using PublisherData;
 
 var _context = new PubContext();
-var authors = _context.Authors.ToList();
+
+var name = "Ozeki";
+var authors = _context.Authors
+    .Where(author => author.LastName == name)
+    .ToList();
+
