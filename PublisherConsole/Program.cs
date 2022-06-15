@@ -2,6 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using PublisherData;
+using PublisherDomain;
 
 var _context = new PetContext();
 
@@ -18,3 +19,11 @@ foreach (var pet in human.Pets)
     Console.WriteLine($"\tDOB: {pet.DateOfBirth}");
     Console.WriteLine($"\tSound: {pet.MakeSound()}");
 }
+
+_context.Pets.Add(new Cat
+{
+    HumanId = 1,
+    Name = "Test"
+});
+
+_context.SaveChanges();

@@ -12,7 +12,7 @@ using PublisherData;
 namespace PublisherData.Migrations
 {
     [DbContext(typeof(PetContext))]
-    [Migration("20220615174028_init")]
+    [Migration("20220615174802_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
