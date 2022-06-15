@@ -1,29 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Microsoft.EntityFrameworkCore;
 using PublisherData;
 using PublisherDomain;
 
 var _context = new PetContext();
 
-var human = _context.Humans
-    .Include(human => human.Pets)
-    .FirstOrDefault();
+var dogs = _context.Pets.OfType<Dog>().ToList();
 
-Console.WriteLine($"Name: {human.Name}");
-Console.WriteLine("Pets:");
-
-foreach (var pet in human.Pets)
+foreach (var dog in dogs)
 {
-    Console.WriteLine($"-\tName: {pet.Name}");
-    Console.WriteLine($"\tDOB: {pet.DateOfBirth}");
-    Console.WriteLine($"\tSound: {pet.MakeSound()}");
+    Console.WriteLine($"-\tName: {dog.Name}");
+    Console.WriteLine($"\tDOB: {dog.DateOfBirth}");
+    Console.WriteLine($"\tSound: {dog.MakeSound()}");
 }
-
-_context.Pets.Add(new Cat
-{
-    HumanId = 1,
-    Name = "Test"
-});
-
-_context.SaveChanges();
